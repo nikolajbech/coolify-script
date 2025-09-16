@@ -189,8 +189,8 @@ if ! [[ $DOCKER_ADDRESS_POOL_SIZE =~ ^[0-9]+$ ]] || [ "$DOCKER_ADDRESS_POOL_SIZE
     fi
 fi
 
-TOTAL_SPACE=$(df -BG / | awk 'NR==2 {print $2}' | sed 's/G//')
-AVAILABLE_SPACE=$(df -BG / | awk 'NR==2 {print $4}' | sed 's/G//')
+TOTAL_SPACE=$(df -BG /dpeth | awk 'NR==2 {print $2}' | sed 's/G//')
+AVAILABLE_SPACE=$(df -BG /depth | awk 'NR==2 {print $4}' | sed 's/G//')
 REQUIRED_TOTAL_SPACE=30
 REQUIRED_AVAILABLE_SPACE=20
 WARNING_SPACE=false
