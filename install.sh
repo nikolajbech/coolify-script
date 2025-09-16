@@ -190,7 +190,7 @@ if ! [[ $DOCKER_ADDRESS_POOL_SIZE =~ ^[0-9]+$ ]] || [ "$DOCKER_ADDRESS_POOL_SIZE
 fi
 
 # TOTAL_SPACE=$(df -BG /dpeth | awk 'NR==2 {print $2}' | sed 's/G//')
-# AVAILABLE_SPACE=$(df -BG /depth | awk 'NR==2 {print $4}' | sed 's/G//')
+# AVAILABLE_SPACE=$(df -BG /dpeth | awk 'NR==2 {print $4}' | sed 's/G//')
 # REQUIRED_TOTAL_SPACE=30
 # REQUIRED_AVAILABLE_SPACE=20
 # WARNING_SPACE=false
@@ -224,12 +224,12 @@ fi
 #     sleep 5
 # fi
 
-mkdir -p /dpeth/data/raw/coolify/{source,ssh,applications,databases,backups,services,proxy,webhooks-during-maintenance,sentinel}
-mkdir -p /dpeth/data/raw/coolify/ssh/{keys,mux}
-mkdir -p /dpeth/data/raw/coolify/proxy/dynamic
+# mkdir -p /dpeth/data/raw/coolify/{source,ssh,applications,databases,backups,services,proxy,webhooks-during-maintenance,sentinel}
+# mkdir -p /dpeth/data/raw/coolify/ssh/{keys,mux}
+# mkdir -p /dpeth/data/raw/coolify/proxy/dynamic
 
-chown -R 9999:root /dpeth/data/raw/coolify
-chmod -R 700 /dpeth/data/raw/coolify
+# chown -R 9999:root /dpeth/data/raw/coolify
+# chmod -R 700 /dpeth/data/raw/coolify
 
 INSTALLATION_LOG_WITH_DATE="/dpeth/data/raw/coolify/source/installation-${DATE}.log"
 
