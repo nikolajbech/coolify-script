@@ -189,40 +189,40 @@ if ! [[ $DOCKER_ADDRESS_POOL_SIZE =~ ^[0-9]+$ ]] || [ "$DOCKER_ADDRESS_POOL_SIZE
     fi
 fi
 
-TOTAL_SPACE=$(df -BG /dpeth | awk 'NR==2 {print $2}' | sed 's/G//')
-AVAILABLE_SPACE=$(df -BG /depth | awk 'NR==2 {print $4}' | sed 's/G//')
-REQUIRED_TOTAL_SPACE=30
-REQUIRED_AVAILABLE_SPACE=20
-WARNING_SPACE=false
+# TOTAL_SPACE=$(df -BG /dpeth | awk 'NR==2 {print $2}' | sed 's/G//')
+# AVAILABLE_SPACE=$(df -BG /depth | awk 'NR==2 {print $4}' | sed 's/G//')
+# REQUIRED_TOTAL_SPACE=30
+# REQUIRED_AVAILABLE_SPACE=20
+# WARNING_SPACE=false
 
-if [ "$TOTAL_SPACE" -lt "$REQUIRED_TOTAL_SPACE" ]; then
-    WARNING_SPACE=true
-    cat <<EOF
-WARNING: Insufficient total disk space!
+# if [ "$TOTAL_SPACE" -lt "$REQUIRED_TOTAL_SPACE" ]; then
+#     WARNING_SPACE=true
+#     cat <<EOF
+# WARNING: Insufficient total disk space!
 
-Total disk space:     ${TOTAL_SPACE}GB
-Required disk space:  ${REQUIRED_TOTAL_SPACE}GB
+# Total disk space:     ${TOTAL_SPACE}GB
+# Required disk space:  ${REQUIRED_TOTAL_SPACE}GB
 
-==================
-EOF
-fi
+# ==================
+# EOF
+# fi
 
-if [ "$AVAILABLE_SPACE" -lt "$REQUIRED_AVAILABLE_SPACE" ]; then
-    cat <<EOF
-WARNING: Insufficient available disk space!
+# if [ "$AVAILABLE_SPACE" -lt "$REQUIRED_AVAILABLE_SPACE" ]; then
+#     cat <<EOF
+# WARNING: Insufficient available disk space!
 
-Available disk space:   ${AVAILABLE_SPACE}GB
-Required available space: ${REQUIRED_AVAILABLE_SPACE}GB
+# Available disk space:   ${AVAILABLE_SPACE}GB
+# Required available space: ${REQUIRED_AVAILABLE_SPACE}GB
 
-==================
-EOF
-    WARNING_SPACE=true
-fi
+# ==================
+# EOF
+#     WARNING_SPACE=true
+# fi
 
-if [ "$WARNING_SPACE" = true ]; then
-    echo "Sleeping for 5 seconds."
-    sleep 5
-fi
+# if [ "$WARNING_SPACE" = true ]; then
+#     echo "Sleeping for 5 seconds."
+#     sleep 5
+# fi
 
 mkdir -p /dpeth/data/raw/coolify/{source,ssh,applications,databases,backups,services,proxy,webhooks-during-maintenance,sentinel}
 mkdir -p /dpeth/data/raw/coolify/ssh/{keys,mux}
